@@ -35,9 +35,9 @@ class GetBestPrice(Exception):
         for element in self.data:
             if((element[0] == brand) and (element[1] == model) and (element[2] == damaged)):
                 if(long_response == 'true'):
-                    response = {"message": {"text": "Die Reperatur Ihres Smartphones kostet 40 €."}}
+                    response = {"message": {"text": "Die Reperatur Ihres Smartphones kostet " + str(element[3]) + "€."}}
                 else:
-                    response = {"message": {"text": "40"}}
+                    response = {"message": {"text": element[3]}}
                 message['message'] = response
                 json_data = json.dumps(message)
                 return json_data

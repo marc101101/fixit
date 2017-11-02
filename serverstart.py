@@ -12,7 +12,6 @@ CORS(app)
 POST /getRepairPrice/
 """
 
-
 @app.errorhandler(InvalidUsage)
 def handle_invalid_usage(error):
     response = jsonify(error.to_dict())
