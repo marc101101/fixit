@@ -12,7 +12,6 @@ CORS(app)
 POST /getRepairPrice/
 """
 
-
 @app.errorhandler(InvalidUsage)
 def handle_invalid_usage(error):
     response = jsonify(error.to_dict())
@@ -26,6 +25,7 @@ def get_repair_price():
     try:
         if request.method == 'POST':
             popular_tags_obj = GetBestPrice()
+            print("here")
             return popular_tags_obj.getPrice(request.headers['brand'],
                                              request.headers['model'],
                                              request.headers['damaged'])
