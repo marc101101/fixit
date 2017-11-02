@@ -28,8 +28,7 @@ def get_repair_price():
             popular_tags_obj = GetBestPrice()
             return popular_tags_obj.getPrice(request.headers['brand'],
                                              request.headers['model'],
-                                             request.headers['damaged'],
-                                             request.headers['long_response'])
+                                             request.headers['damaged'])
 
     except Exception as e:
         print(e)

@@ -30,15 +30,9 @@ class GetBestPrice(Exception):
             ['Sony', 'XZ', 'Akku', '60'],
             ['Sony', 'XZ', 'Ladebuchse', '80']]
 
-    def getPrice(self, brand, model, damaged, long_response=False):
-        message = {}
+    def getPrice(self, brand, model, damaged):
         for element in self.data:
             if((element[0] == brand) and (element[1] == model) and (element[2] == damaged)):
-                if(long_response == 'true'):
-                    response = {"message": {"text": "Die Reperatur Ihres Smartphones kostet 40 €."}}
-                else:
-                    response = {"message": {"text": "40"}}
-                message['message'] = response
-                json_data = json.dumps(message)
+                json_data = json.dumps({"message": {"price": 40}, "set_attributes": {"price": 40}})
                 return json_data
         raise Exception('Not Found')
